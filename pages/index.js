@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { Dropdown } from 'semantic-ui-react';
-import $ from 'jquery';
 import 'semantic-ui-css/semantic.min.css';
 
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState('p1');
 
   const handleImageClick = (imageId) => {
-    setSelectedImage(imageId === selectedImage ? null : imageId);
+    setSelectedImage(imageId);
   };
 
 
