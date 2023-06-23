@@ -1,0 +1,48 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  
+  .logo {
+    max-width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .button-container {
+    margin-top: 10px;
+  }
+  
+  .button {
+    background-color: lightblue;
+    padding: 10px 20px;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: cornflowerblue;
+  }
+  
+  .add-icon{
+    height: 10px;
+    margin-right: 5px;
+  }
+
+  .book-icon{
+    width: 13px;
+    margin-right: 5px;
+  }
+
+  .user-icon{
+    width: 13px;
+    margin-right: 5px;
+  }
