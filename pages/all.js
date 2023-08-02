@@ -61,13 +61,3 @@ export default function Home() {
 
 }
 
-// Tiempo de Comforter
-// Material 
-// PUlgada de reocrr
-
-// Botón para dar save a un database el precio final
-
-// Maid
-
-// Madera 1/4 
-// Aluminio 1/8

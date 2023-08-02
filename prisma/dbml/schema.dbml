@@ -1,0 +1,13 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table Collection {
+  id Int [pk, increment]
+  height String [not null]
+  materialColor String [not null]
+  materialName String [not null]
+  quality String [not null]
+  thickness String [not null]
+  width String [not null]
+}

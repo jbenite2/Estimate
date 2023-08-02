@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = "mysql://9tdg3y0tmaun6dbovyfv:pscale_pw_4KrNarhUlRUyKyqNYTeMLD1RK37Izj2cggtHxEXLSEN@aws.connect.psdb.cloud/estimate?sslaccept=strict"
+  relationMode = "prisma"
+}
+
+
+
+model Collection {
+    id        Int      @default(autoincrement()) @id
+    height    String
+    materialColor    String
+    materialName    String
+    quality    String
+    thickness   String
+    width   String
+}
+
+//  DATABASE_URL='mysql://2voyk44xh1rtzosunxgf:pscale_pw_JfuDx9dJBTv4suuJXXRedLlr2vKOjENZ3WQTLy6MVkl@aws.connect.psdb.cloud/estimate?ssl={"rejectUnauthorized":true}'
