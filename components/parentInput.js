@@ -28,7 +28,10 @@ export default function ParentComponent() {
 
   const handleFormSubmit = async (formData) => {
     // Add the logic to set the selected file name to the formData
-    formData.file = selectedFile.name;
+    if (selectedFile) {
+      formData.file = selectedFile.name;
+    }
+    console.log(formData)
     handleUpload(); 
   
     try {
@@ -38,7 +41,7 @@ export default function ParentComponent() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData, selectedFile.name),
       });
   
       // Parse the response data

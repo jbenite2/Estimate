@@ -6,7 +6,8 @@ const thicknessOptions = ['1/64"', '1/32"', '1/16"', '1/8"',
   '3/16"', '5/16"', '1/4"', '3/8"',
   '1/2"', '3/4"', '1"', '2"'
 ];
-const materialColorOptions = ['Mate Black', 'White', 'Gray', 'Red', 'Blue'];
+const materialColorOptions = ['Clear', 'Mate Black', 'White', 'Gray', 'Red', 'Blue'];
+const materialOptions = ['Wood', 'Aluminum', 'PVC', 'Stainless Steel', 'Plain Steel', 'Glass', 'Mirror', 'Acrylic', 'Stone', 'Rubber', 'Galvanized']
 
 const InputComponent = ({ onSubmit }) => {
   const [productName, setProductName] = useState('');
@@ -21,8 +22,7 @@ const InputComponent = ({ onSubmit }) => {
   const [materialColorPurchased, setMaterialColorPurchased] = useState('');
   const [materialCosts, setMaterialCosts] = useState(0);
   const [cutQuality, setCutQuality] = useState('');
-  const [estimatedAbrasiveUse1, setEstimatedAbrasiveUse1] = useState('');
-  const [estimatedAbrasiveUse2, setEstimatedAbrasiveUse2] = useState('');
+  const [estimatedAbrasiveUse, setEstimatedAbrasiveUse] = useState('');
   const [estimatedCutTime, setEstimatedCutTime] = useState('00:00:00');
 
   const isValidStopwatchTime = (inputTime) => {
@@ -45,15 +45,14 @@ const InputComponent = ({ onSubmit }) => {
       productThickness,
       productWidth,
       productHeight,
-      materialColor,
+      productColor,
       purchasedWidth,
       purchasedHeight,
       purchasedThickness,
       materialColorPurchased,
       materialCosts,
       cutQuality,
-      estimatedAbrasiveUse1,
-      estimatedAbrasiveUse2,
+      estimatedAbrasiveUse,
       estimatedCutTime,
     };
     console.log(formData); // You can replace this with any other action you want to perform with the data
@@ -71,17 +70,23 @@ const InputComponent = ({ onSubmit }) => {
           onChange={(e) => setProductName(e.target.value)}
         />
       </label>
-      <label className="input-label">
+      <label style={{ marginTop: '50px' }} className="input-label">
         Material Type:
-        <input
+        <select
           className="input-field"
-          type="text"
           value={materialType}
           onChange={(e) => setMaterialType(e.target.value)}
-        />
+        >
+          <option value=""> </option>
+          {materialOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </label>
       <label className="input-label">
-        Product Thickness (inches):
+        Product Thickness (feet):
         <select
           className="input-field"
           value={productThickness}
@@ -96,7 +101,7 @@ const InputComponent = ({ onSubmit }) => {
         </select>
       </label>
       <label className="input-label">
-        Product Width (inches):
+        Product Width (feet):
         <input
           className="input-field"
           type="number"
@@ -106,7 +111,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-        Product Height (inches):
+        Product Height (feet):
         <input
           className="input-field"
           type="number"
@@ -131,7 +136,7 @@ const InputComponent = ({ onSubmit }) => {
         </select>
       </label>
       <label style={{ marginTop: '50px' }} className="input-label">
-        Purchased Width (inches):
+        Purchased Width (feet):
         <input
           className="input-field"
           type="number"
@@ -141,7 +146,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-        Purchased Height (inches):
+        Purchased Height (feet):
         <input
           className="input-field"
           type="number"
@@ -151,7 +156,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-        Purchased Thickness (inches):
+        Purchased Thickness (feet):
         <select
           className="input-field"
           value={purchasedThickness}
@@ -211,18 +216,8 @@ const InputComponent = ({ onSubmit }) => {
           className="input-field"
           type="number"
           step="0.01"
-          value={estimatedAbrasiveUse1}
-          onChange={(e) => setEstimatedAbrasiveUse1(e.target.value)}
-        />
-      </label>
-      <label className="input-label">
-        Estimated Abrasive Use (lbs):
-        <input
-          className="input-field"
-          type="number"
-          step="0.01"
-          value={estimatedAbrasiveUse2}
-          onChange={(e) => setEstimatedAbrasiveUse2(e.target.value)}
+          value={estimatedAbrasiveUse}
+          onChange={(e) => setEstimatedAbrasiveUse(e.target.value)}
         />
       </label>
       <label className="input-label">

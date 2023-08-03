@@ -2,12 +2,21 @@
 //// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 //// ------------------------------------------------------
 
-Table Collection {
+Table Templates {
   id Int [pk, increment]
-  height String [not null]
-  materialColor String [not null]
-  materialName String [not null]
-  quality String [not null]
-  thickness String [not null]
-  width String [not null]
+  productName String [not null]
+  productHeight Float [not null]
+  productColor String [not null]
+  materialType String [not null]
+  cutQuality String [not null]
+  productThickness String [not null]
+  productWidth Float [not null]
+  purchasedWidth Float [not null]
+  purchasedHeight Float [not null]
+  purchasedThickness String [not null]
+  materialColorPurchased String [not null]
+  materialCosts Float [not null]
+  estimatedAbrasiveUse Float [not null]
+  estimatedCutTime String [not null]
+  fileName String [not null]
 }
