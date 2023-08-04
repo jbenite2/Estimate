@@ -42,7 +42,7 @@ export default function TemplateList() {
     }
   };
 
-
+  console.log('PICS', pics);
 
   return (
     <div>
