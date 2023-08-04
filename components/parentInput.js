@@ -20,7 +20,6 @@ export default function ParentComponent() {
 
       await axios.post("/api/image", formData);
     } catch (error) {
-      console.log(error.response?.data);
     }
     setUploading(false);
   };
@@ -31,7 +30,6 @@ export default function ParentComponent() {
     if (selectedFile) {
       formData.file = selectedFile.name;
     }
-    console.log(formData)
     handleUpload(); 
   
     try {
@@ -46,9 +44,6 @@ export default function ParentComponent() {
   
       // Parse the response data
       const newEntry = await response.json();
-  
-      // Handle the response as needed
-      console.log('New entry:', newEntry);
   
       // If you need to do something with the response data in the frontend, you can do it here.
   

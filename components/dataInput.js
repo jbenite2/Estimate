@@ -55,7 +55,6 @@ const InputComponent = ({ onSubmit }) => {
       estimatedAbrasiveUse,
       estimatedCutTime,
     };
-    console.log(formData); // You can replace this with any other action you want to perform with the data
     onSubmit(formData); // Call the onSubmit prop with the form data
   };
 

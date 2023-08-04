@@ -17,9 +17,7 @@ const Dropzone = ({ dirs }) => {
 
       // Send the FormData object to your server using axios or fetch API
       const { data } = await axios.post("/api/image", formData);
-      console.log(data);
     } catch (error) {
-      console.log(error.response?.data);
     }
     setUploading(false);
   };
