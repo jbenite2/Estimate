@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 
 export default function TemplateList() {
   const [pics, setPics] = useState([]);
@@ -42,7 +42,10 @@ export default function TemplateList() {
     }
   };
 
-  console.log('PICS', pics);
+  useEffect(() => {
+    console.log(pics)
+  },[pics]);
+
 
   return (
     <div>
