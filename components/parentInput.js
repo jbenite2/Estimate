@@ -46,7 +46,6 @@ export default function ParentComponent() {
       const newEntry = await response.json();
   
       // If you need to do something with the response data in the frontend, you can do it here.
-  
     } catch (error) {
       console.error('Error:', error);
       // Handle errors or display error messages as needed.
