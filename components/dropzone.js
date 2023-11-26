@@ -8,18 +8,30 @@ const Dropzone = ({ dirs }) => {
 
   const handleUpload = async ( onFileDrop ) => {
     setUploading(true);
-    try {
-      if (!selectedFile) return;
+	  try {
+		  //Fail try except if not file is passed in
+		  if (!selectedFile) return;
+			
+		  //Get secure URL from our server
 
-      // Create a FormData object and append the selected file to it
-      const formData = new FormData();
-      formData.append("myImage", selectedFile);
 
-      // Send the FormData object to your server using axios or fetch API
-      const { data } = await axios.post("/api/image", formData);
-    } catch (error) {
-    }
-    setUploading(false);
+		  //Post the image directly to the S3 bucket
+		  
+
+
+		  //Post request to my server to store any extra data
+
+
+		  // Create a FormData object and append the selected file to it
+		  const formData = new FormData();
+		  formData.append("myImage", selectedFile);
+
+		  // Send the FormData object to your server using axios or fetch API
+		  const { data } = await axios.post("/api/image", formData);
+	} catch (error) {
+		console.log(error)
+	}
+	setUploading(false);
   };
 
   return (

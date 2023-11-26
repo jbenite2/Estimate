@@ -9,15 +9,18 @@ export default function Header(){
               <button className="button"> 
               <img className='book-icon' src='/book-icon.png'></img>
                 <Link href='/collection'>Collection</Link>
-              </button>
+			  </button>
               <button className="button">
               <img className='add-icon' src='/add_icon.png'></img>
                 <Link href='/quote'>Template</Link>
                 </button>
                 <button className="button">
-              <img className='user-icon' src='/user-icon.png'></img>
-                <Link href='/all'>All Patterns</Link>
-                </button>
+					<img className='user-icon' src='/user-icon.png'></img>
+					<Link href='/all'>All Patterns</Link>
+				</button>
+				<button className="button">
+					<Link href='/testingS3'>testingS3</Link>
+				</button>
             </div>
         </div>
     )

@@ -1,8 +1,9 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import productData from './productDetail'; // Import your product data here
 
 export default function TemplateList() {
   const [pics, setPics] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [localImages, setLocalImages] = useState([]);
 
   useEffect(() => {
@@ -43,24 +44,24 @@ export default function TemplateList() {
   };
 
   useEffect(() => {
-    console.log(pics)
-  },[pics]);
-
+    console.log(pics);
+  }, [pics]);
 
   return (
     <div>
       <h1>Picture List</h1>
-      {loading ? ( // Show a loading message or spinner while waiting for the data
+      {loading ? (
         <div>Loading...</div>
       ) : (
         <div>
           {pics.map((picture, index) => (
-            <img
-              key={index}
-              src={`/images/${localImages[picture.fileName]}`} // Replace with the actual path to your pictures
-              alt={`Picture ${index}`}
-              style={{ width: '200px', height: '200px', margin: '10px' }}
-            />
+            <a href={`products/${index}`} key={index}> 
+              <img
+                src={`/images/${localImages[picture.fileName]}`}
+                alt={`Picture ${index}`}
+                style={{ width: '200px', height: '200px', margin: '10px' }}
+              />
+            </a>
           ))}
         </div>
       )}
