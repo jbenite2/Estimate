@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import AWS from 'aws-sdk';
-// import {generateUploadURL } from '../pages/s3'
-// import express from 'express'
-
+require('dotenv').config();
 
 export default function DisplayAddedQuotes() {
 	const [imageSrc, setImageSrc] = useState(null);
 
 	let bucket = new AWS.S3({
 		region: 'us-east-2',
-		accessKeyId: 'AKIAXRCFHVNPVA2XYQUO',
-		secretAccessKey: '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'
+		accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+		secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 	});
 	
 	var params = {
