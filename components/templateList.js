@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import productData from './productDetail'; // Import your product data here
+import './templateList.css'
 
 export default function TemplateList() {
   const [pics, setPics] = useState([]);
@@ -48,23 +49,27 @@ export default function TemplateList() {
   }, [pics]);
 
   return (
-    <div>
-      <h1>Picture List</h1>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <div>
-          {pics.map((picture, index) => (
-            <a href={`products/${index}`} key={index}> 
-              <img
-                src={`/images/${localImages[picture.fileName]}`}
-                alt={`Picture ${index}`}
-                style={{ width: '200px', height: '200px', margin: '10px' }}
-              />
-            </a>
-          ))}
-        </div>
-      )}
+    <div className='broaderDiv'>
+		<div>
+			<h1>Product List</h1>
+		</div>
+		<div className='templateContainer'>
+			  {loading ? (
+				<div>Loading...</div>
+			  ) : (
+				<div>
+				  {pics.map((picture, index) => (
+					<a href={`products/${index}`} key={index}> 
+					  <img
+						src={`${picture.fileName}`}
+					  alt={`Picture ${picture.fileName}`}
+					  className='individualTemplateStyle'
+					  />
+					</a>
+				  ))}
+				</div>
+			  )}
+		</div>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+.broaderDiv{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+@media only screen and (max-width: 600px) {
+	.templateContainer{
+		margin-left: 6vh;
+	}
+}
+.individualTemplateStyle{
+	width: 30vh;
+	margin: 10px;
+	border-radius: 50px;
+}

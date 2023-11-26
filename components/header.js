@@ -18,9 +18,6 @@ export default function Header(){
 					<img className='user-icon' src='/user-icon.png'></img>
 					<Link href='/all'>All Patterns</Link>
 				</button>
-				<button className="button">
-					<Link href='/testingS3'>testingS3</Link>
-				</button>
             </div>
         </div>
     )

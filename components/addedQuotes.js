@@ -15,14 +15,9 @@ export default function DisplayAddedQuotes() {
 	
 	var params = {
 		Bucket: 'estimate-bucket', 
-		// Key: '360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg'
 		Delimiter: '/'
 	};
 
-	// s3.getObject(params, function(err, data){
-	// 	if(err) console.log(err, err.stack) //an error occured
-	// 	else console.log(data);
-	// });
 
 	bucket.listObjects(params, function(err, data){
 		if (err) {
@@ -37,7 +32,7 @@ export default function DisplayAddedQuotes() {
 
   return (
     <>
-	  <h1>Hello World</h1>
+	  <h1> Testing Cat Image </h1>
 	  <img src={`https://estimate-bucket.s3.us-east-2.amazonaws.com/${imageSrc}`} alt='Cat Image' />
 	</>
   );

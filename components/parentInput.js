@@ -2,6 +2,8 @@ import InputComponent from './dataInput';
 import { useState } from "react";
 import axios from "axios";
 import handle from '../pages/api/addQuote';
+import { generateUploadURL } from '../pages/api/upload' 
+import './parentInput.css'
 
 export default function ParentComponent() {
   const [file, setFile] = useState(null);
@@ -18,7 +20,11 @@ export default function ParentComponent() {
       const formData = new FormData();
       formData.append("myImage", selectedFile);
 
-      await axios.post("/api/image", formData);
+	  const url = await generateUploadURL()
+
+	  return url
+
+      // await axios.post("/api/image", formData);
     } catch (error) {
     }
     setUploading(false);
@@ -27,10 +33,12 @@ export default function ParentComponent() {
 
   const handleFormSubmit = async (formData) => {
     // Add the logic to set the selected file name to the formData
+	  const url = await handleUpload(); 
+	  const imageUrl = url.split('?')[0]
+
     if (selectedFile) {
-      formData.file = selectedFile.name;
+      formData.file = imageUrl
     }
-    handleUpload(); 
   
     try {
       // Call the backend API endpoint using the fetch API
@@ -40,15 +48,26 @@ export default function ParentComponent() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData, selectedFile.name),
-      });
-  
+	  });
+
+	   // Also try to make a PUT request to the s3 bucket 
+	  const responseAWS = await fetch(url, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "multipart/form-data"
+		},
+		body: selectedFile
+	  })
+
+
       // Parse the response data
       const newEntry = await response.json();
   
-      // If you need to do something with the response data in the frontend, you can do it here.
+		// If you need to do something with the response data in the frontend, you can do it here.
+		location.reload()
+		
     } catch (error) {
       console.error('Error:', error);
-      // Handle errors or display error messages as needed.
     }
   };
 
@@ -68,7 +87,7 @@ export default function ParentComponent() {
         />
         <div className="w-40 aspect-video rounded flex items-center justify-center border-2 border-dashed cursor-pointer">
           {selectedImage ? (
-            <img src={selectedImage} alt="" />
+            <img src={selectedImage} className='selectedImageStyle' />
           ) : (
             <div
               style={{
