@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # Bugs that came up along the way 
 - Weird cannot read properties of undefined 'from' in a line where the word 'from' was nowhere to be found. s3.getObject was being weird. Data was not returning right.
-    - Fix: Go to the main and run 
+    - Fix: Go to the main and run  
 
     ```bash
     npm i aws-sdk
