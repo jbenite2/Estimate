@@ -34,7 +34,7 @@ export default function ParentComponent() {
   const handleFormSubmit = async (formData) => {
     // Add the logic to set the selected file name to the formData
 	  // const url = await handleUpload(); 
-	  console.log(await handleUpload())
+	  const url = await handleUpload()
 	  const imageUrl = url.split('?')[0]
 
     if (selectedFile) {

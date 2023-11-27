@@ -18,3 +18,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
     ```bash
     npm i aws-sdk
     ```
+- Make sure your env variables start with NEXT_PUBLIC_!
