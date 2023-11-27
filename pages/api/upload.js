@@ -10,10 +10,6 @@ let bucket = new AWS.S3({
 	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
-var params = {
-	Bucket: 'estimate-bucket', 
-	Delimiter: '/'
-};
 
 
 export async function generateUploadURL(){
