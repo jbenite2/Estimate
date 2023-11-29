@@ -20,9 +20,14 @@ datasource db {
 model Templates {
   id            Int      @default(autoincrement()) @id
   productName   String
+  clientName	String
+  projectName	String
+  salePrice		Float
+  unitCost		Float
   productHeight        Float
   productColor String
   materialType  String
+  productWeight	Float
   cutQuality       String
   productThickness     String
   productWidth         Float
@@ -33,5 +38,7 @@ model Templates {
   materialCosts          Float
   estimatedAbrasiveUse   Float
   estimatedCutTime        String
+  estimatedCutDistance	Float
+  suppliers	String
   fileName  String
 }

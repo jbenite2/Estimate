@@ -5,9 +5,14 @@
 Table Templates {
   id Int [pk, increment]
   productName String [not null]
+  clientName String [not null]
+  projectName String [not null]
+  salePrice Float [not null]
+  unitCost Float [not null]
   productHeight Float [not null]
   productColor String [not null]
   materialType String [not null]
+  productWeight Float [not null]
   cutQuality String [not null]
   productThickness String [not null]
   productWidth Float [not null]
@@ -18,5 +23,7 @@ Table Templates {
   materialCosts Float [not null]
   estimatedAbrasiveUse Float [not null]
   estimatedCutTime String [not null]
+  estimatedCutDistance Float [not null]
+  suppliers String [not null]
   fileName String [not null]
 }
