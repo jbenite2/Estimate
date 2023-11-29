@@ -14,8 +14,13 @@ async function addQuote(req, res) {
     const newEntry = await prisma.templates.create({
       data: {
         productName: body.productName,
+		clientName: body.clientName,
+		projectName: body.projectName,
+		salePrice: parseFloat(body.salePrice),
+		unitCost: parseFloat(body.unitCost),
         productWidth: parseFloat(body.productWidth),
         productHeight: parseFloat(body.productHeight),
+		productWeight: parseFloat(body.productWeight),
         productColor: body.productColor,
         materialType: body.materialType,
         cutQuality: body.cutQuality,
@@ -26,7 +31,9 @@ async function addQuote(req, res) {
         materialColorPurchased: body.materialColorPurchased,
         materialCosts: parseFloat(body.materialCosts),
         estimatedAbrasiveUse: parseFloat(body.estimatedAbrasiveUse),
-        estimatedCutTime: body.estimatedCutTime,
+		estimatedCutTime: body.estimatedCutTime,
+		estimatedCutDistance: parseFloat(body.estimatedCutDistance),
+		suppliers: body.suppliers,
         fileName: body.file,
       },
     });

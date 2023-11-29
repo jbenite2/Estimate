@@ -25,7 +25,7 @@ model Templates {
   salePrice		Float
   unitCost		Float
   productHeight        Float
-  productColor String
+  productColor 	   String
   materialType  String
   productWeight	Float
   cutQuality       String

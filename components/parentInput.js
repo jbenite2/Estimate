@@ -40,6 +40,8 @@ export default function ParentComponent() {
     if (selectedFile) {
       formData.file = imageUrl
     }
+
+	  console.log(formData)
   
     try {
       // Call the backend API endpoint using the fetch API
