@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header'
+import './[product].css'
 
 export default function TemplateList() {
   const [data, setData] = useState([]);
@@ -42,16 +43,43 @@ export default function TemplateList() {
 	  <div>
 		  <Header />
 		  <div>
-			  <h1>Product Detail</h1>
+			  <h1>Product Details</h1>
 			  {loading ? (
 				<p>Loading...</p>
 			  ) : (
-				<div>
-				  {Object.keys(data).map((key) => (
-					<p key={key}>
-					  <strong>{key}:</strong> {data[key]}
-					</p>
-				  ))}
+				<div className='ProductDetailsContainer'>
+					<div className='NamesContainer'>
+						<p>Nombre del Producto</p>
+						<p>{data.productName}</p>
+						<p>Cliente: {data.clientName}</p>
+						<p>Proyecto: {data.projectName}</p>
+					</div>
+					<div className='PictureContainer'>
+						<img
+							src={`${data.fileName}`}
+						  alt={`Picture ${data.fileName}`}
+						  className='Picture'
+						  />
+					</div>
+					<div className='DateContainer'>
+						<p>Fecha de Creacion: 28/noviembre/2023</p>
+						<p>Fecha de Entrega: 10/noviembre/2023</p>
+						<p>Fecha de Instalacion: 10/noviembre/2023</p>
+					</div>
+					<div className='KeyInfoContainer'>
+						<p>Informacion Clave</p>
+						<p>Precio de Venta Final: ${data.salePrice}</p>
+						<p>Margen de Ganancia: 70%</p>
+						<p>Costo Unitario: ${data.unitCost}</p>
+						<p>Costo por Pie Cuadrado: $3</p>
+						<p>Costo por Pie Lineal: $1</p>
+						<p>Venta del Pie Cuadrado: $10</p>
+					</div>
+					<div className='MoreInfoContainer'>
+						<button>Water Jet</button>
+						<button>Producto Final</button>
+						<button>Suplidor</button>
+					</div>
 				</div>
 			  )}
 		  </div>
