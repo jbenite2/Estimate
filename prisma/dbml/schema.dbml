@@ -4,6 +4,7 @@
 
 Table Templates {
   id Int [pk, increment]
+  createdAt DateTime [default: `now()`, not null]
   productName String [not null]
   clientName String [not null]
   projectName String [not null]

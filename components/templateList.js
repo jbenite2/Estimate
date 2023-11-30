@@ -11,19 +11,6 @@ export default function TemplateList() {
     fetchTemplates();
   }, []);
 
-  useEffect(() => {
-    fetch('/api/filterImages')
-      .then((response) => response.json())
-      .then((data) => {
-        setLocalImages(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching filtered images:', error);
-        setLoading(false);
-      });
-  }, []);
-
   const fetchTemplates = async () => {
     try {
       // Call the backend API endpoint using the fetch API
