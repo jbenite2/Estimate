@@ -12,7 +12,7 @@ export default function TemplateList() {
 
   useEffect(() => {
 	  if (product){
-		  const incrementedProduct = parseInt(product, 10) + 1;
+		  const incrementedProduct = parseInt(product, 10);
 		fetchProductData(incrementedProduct.toString());
 	  }
   }, [product]);
