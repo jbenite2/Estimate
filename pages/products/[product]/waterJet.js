@@ -4,7 +4,7 @@ import Header from '../../../components/header'
 import Link from 'next/link'
 import './extraInfo.css'
 
-export default function waterJet() {
+export default function WaterJet() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();

@@ -35,6 +35,7 @@ export default function ParentComponent() {
     // Add the logic to set the selected file name to the formData
 	  // const url = await handleUpload(); 
 	  const url = await handleUpload()
+	  if (!url) return
 	  const imageUrl = url.split('?')[0]
 
     if (selectedFile) {
@@ -66,8 +67,6 @@ export default function ParentComponent() {
       // Parse the response data
       const newEntry = await response.json();
   
-		// If you need to do something with the response data in the frontend, you can do it here.
-		location.reload()
 		
     } catch (error) {
       console.error('Error:', error);

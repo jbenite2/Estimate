@@ -10,6 +10,7 @@ const materialColorOptions = ['Clear', 'Mate Black', 'White', 'Gray', 'Red', 'Bl
 const materialOptions = ['Wood', 'Aluminum', 'PVC', 'Stainless Steel', 'Plain Steel', 'Glass', 'Mirror', 'Acrylic', 'Stone', 'Rubber', 'Galvanized']
 
 const InputComponent = ({ onSubmit }) => {
+  const [loading, setLoading] = useState(false);
   const [productName, setProductName] = useState('');
   const [clientName, setClientName] = useState('');
   const [projectName, setProjectName] = useState('');
@@ -33,8 +34,6 @@ const InputComponent = ({ onSubmit }) => {
   const [suppliers, setSuppliers] = useState('');
 
   const isValidStopwatchTime = (inputTime) => {
-    // Add validation logic here if needed
-    // For simplicity, we assume any input is valid in this example.
     return true;
   };
 
@@ -46,6 +45,9 @@ const InputComponent = ({ onSubmit }) => {
   };
 
   const handleSubmit = () => {
+	console.log(loading)
+	setLoading(true);
+	alert("The form has been submitted. Please wait a few seconds for the data to be processed.");
     const formData = {
       productName,
 	  clientName,
@@ -68,8 +70,12 @@ const InputComponent = ({ onSubmit }) => {
 	  estimatedCutTime,
 	  estimatedCutDistance,
 	  suppliers
-    };
-    onSubmit(formData); // Call the onSubmit prop with the form data
+	};
+	onSubmit(formData)
+	setTimeout(() => {
+		setLoading(false);
+		location.reload()
+	}, 5000);
   };
 
   return (
@@ -170,7 +176,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-        Product Weight (feet):
+        Product Weight (lbs):
         <input
           className="input-field"
           type="number"
@@ -255,7 +261,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label style={{ marginTop: '0px' }} className="input-label">
-        Suppliers:
+        Supplier(s):
         <input
           className="input-field"
           type="text"
@@ -289,7 +295,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-        Estimated Cut Time:
+        Estimated Cut Time(hh:mm:ss):
         <input
           className="input-field"
           type="text"
@@ -298,7 +304,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-        Estimated Cut Distance:
+        Estimated Cut Distance (inches):
         <input
           className="input-field"
           type="text"
@@ -316,8 +322,9 @@ const InputComponent = ({ onSubmit }) => {
           cursor: 'pointer',
         }}
         onClick={handleSubmit}
+		disabled={loading}
       >
-        Submit
+	   {loading ? "Loading..." : "Submit"}
       </button>
     </div>
   );

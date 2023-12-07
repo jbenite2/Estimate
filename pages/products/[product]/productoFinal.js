@@ -5,7 +5,7 @@ import Link from 'next/link'
 import './extraInfo.css'
 
 
-export default function waterJet() {
+export default function ProductoFinal() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
