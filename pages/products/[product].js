@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header'
 import './[product].css'
+import Link from 'next/link'
 
 export default function TemplateList() {
   const [data, setData] = useState([]);
@@ -40,25 +41,24 @@ export default function TemplateList() {
   }, [data]);
 
   return (
-	  <div>
+	  <div className='wholePage'>
 		  <Header />
 		  <div>
-			  <h1>Product Details</h1>
 			  {loading ? (
 				<p>Loading...</p>
 			  ) : (
 				<div className='ProductDetailsContainer'>
 					<div className='NamesContainer'>
-						<p>Nombre del Producto</p>
-						<p>{data.productName}</p>
+						<p>Nombre del Producto:</p>
+						<p className='productName'><b><u>{data.productName}</u></b></p>
 						<p>Cliente: {data.clientName}</p>
 						<p>Proyecto: {data.projectName}</p>
 					</div>
 					<div className='PictureContainer'>
 						<img
 							src={`${data.fileName}`}
-						  alt={`Picture ${data.fileName}`}
-						  className='Picture'
+							alt={`Picture ${data.fileName}`}
+							className='Picture'
 						  />
 					</div>
 					<div className='DateContainer'>
@@ -66,19 +66,23 @@ export default function TemplateList() {
 						<p>Fecha de Entrega: 10/noviembre/2023</p>
 						<p>Fecha de Instalacion: 10/noviembre/2023</p>
 					</div>
+					<h1>Información Clave</h1>
 					<div className='KeyInfoContainer'>
-						<p>Informacion Clave</p>
-						<p>Precio de Venta Final: ${data.salePrice}</p>
-						<p>Margen de Ganancia: 70%</p>
-						<p>Costo Unitario: ${data.unitCost}</p>
-						<p>Costo por Pie Cuadrado: $3</p>
-						<p>Costo por Pie Lineal: $1</p>
-						<p>Venta del Pie Cuadrado: $10</p>
+						<div className='KeyInfo KeyInfo1'>
+							<p>Precio de Venta Final: ${data.salePrice}</p>
+							<p>Margen de Ganancia: 70%</p>
+							<p>Costo Unitario: ${data.unitCost}</p>
+						</div>
+						<div className='KeyInfo KeyInfo2'>
+							<p>Costo por Pie Cuadrado: $3</p>
+							<p>Costo por Pie Lineal: $1</p>
+							<p>Venta del Pie Cuadrado: $10</p>
+						</div>
 					</div>
 					<div className='MoreInfoContainer'>
-						<button>Water Jet</button>
-						<button>Producto Final</button>
-						<button>Suplidor</button>
+						<button><Link className='Link' href={product+'/waterJet'}>Water Jet</Link></button>
+						<button><Link className='Link' href={product+'/productoFinal'}>Producto Final</Link></button>
+						<button><Link className='Link' href={product+'/suplidor'}>Suplidor</Link></button>
 					</div>
 				</div>
 			  )}

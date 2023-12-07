@@ -30,8 +30,9 @@
 
 .KeyInfoContainer{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content:center;
+	align-items: center;
 	width: 100vh;
 }
 
@@ -78,6 +79,15 @@ button {
 	font-size: 18px;
 	text-decoration: none;
   }
+
+  .backButton{
+	  border-radius: 10px;
+	  font-size: 48px;
+	  position: absolute;
+	  bottom: 0;
+	  margin-bottom: 20px;
+	  margin-left: 25px;
+  }
   
 button:hover {
     background-color: cornflowerblue;
@@ -96,3 +106,4 @@ button:hover {
 		width: 50vh;
 	}
 }
+
