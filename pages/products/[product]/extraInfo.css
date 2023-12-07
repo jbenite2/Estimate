@@ -83,10 +83,10 @@ button {
   .backButton{
 	  border-radius: 10px;
 	  font-size: 48px;
-	  position: absolute;
-	  bottom: 0;
+	  /* position: absolute; */
 	  margin-bottom: 20px;
-	  margin-left: 25px;
+	  margin-top: 90px;
+	  margin-left: 10px;
   }
   
 button:hover {
