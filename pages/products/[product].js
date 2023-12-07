@@ -5,11 +5,28 @@ import './[product].css'
 import Link from 'next/link'
 
 export default function TemplateList() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [localImages, setLocalImages] = useState([]);
-  const router = useRouter();
-  const { product } = router.query;
+		const [data, setData] = useState([]);
+		const [loading, setLoading] = useState(true);
+		const [localImages, setLocalImages] = useState([]);
+		const router = useRouter();
+		const { product } = router.query;
+		const [creationDate, setCreationDate] = useState(null);
+		const [costLinearFeet, setCostLinearFeet] = useState(null);
+
+		const [profitMargin, setProfitMargin] = useState(null); // Initialize the profit margin state
+
+	useEffect(() => {
+	  if (data.unitCost && data.salePrice) {
+		const cost = parseFloat(data.unitCost);
+		const sale = parseFloat(data.salePrice);
+		const margin = ((sale - cost) / sale) * 100;
+		setProfitMargin(margin.toFixed(2)); 
+
+		setCreationDate(data.createdAt.split('T')[0]);
+
+		setCostLinearFeet((data.unitCost / data.estimatedCutDistance).toFixed(2));
+	  }
+	}, [data.unitCost, data.salePrice]);
 
 
   useEffect(() => {
@@ -62,20 +79,20 @@ export default function TemplateList() {
 						  />
 					</div>
 					<div className='DateContainer'>
-						<p>Fecha de Creacion: 28/noviembre/2023</p>
-						<p>Fecha de Entrega: 10/noviembre/2023</p>
-						<p>Fecha de Instalacion: 10/noviembre/2023</p>
+						<p>Fecha de Creación: {creationDate}</p>
+						<p>Fecha de Entrega: N/A</p>
+						<p>Fecha de Instalacion: N/A</p>
 					</div>
 					<h1>Información Clave</h1>
 					<div className='KeyInfoContainer'>
 						<div className='KeyInfo KeyInfo1'>
 							<p>Precio de Venta Final: ${data.salePrice}</p>
-							<p>Margen de Ganancia: 70%</p>
+							<p>Margen de Ganancia: {profitMargin}%</p>
 							<p>Costo Unitario: ${data.unitCost}</p>
 						</div>
 						<div className='KeyInfo KeyInfo2'>
 							<p>Costo por Pie Cuadrado: $3</p>
-							<p>Costo por Pie Lineal: $1</p>
+							<p>Costo por Pie Lineal: ${costLinearFeet}</p>
 							<p>Venta del Pie Cuadrado: $10</p>
 						</div>
 					</div>
