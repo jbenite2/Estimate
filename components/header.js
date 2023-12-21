@@ -4,11 +4,11 @@ import Link from 'next/link';
 export default function Header(){
     return (
         <div className="header">
-            <img src="/BM-Logo.png" className="logo" alt="Logo" />
+			<a><img src="/BM-Logo.png" className="logo" alt="Logo" /></a>
             <div className="button-container">
 				<button className="button"> 
 					<img className='book-icon' src='/book-icon.png'></img>
-					<Link className='Link' href='/collection'>Collection</Link>
+					<Link className='Link' href='/categorias'>Categories</Link>
 				</button>
 				<button className="button">
 					<img className='add-icon' src='/add_icon.png'></img>

@@ -46,7 +46,7 @@ export default function TemplateList() {
 			  ) : (
 				<div>
 				  {pics.map((picture, index) => (
-					<a href={`products/${index}`} key={index}> 
+					  <a href={`../products/${index}`} key={index}> 
 					  <img
 						src={`${picture.fileName}`}
 					  alt={`Picture ${picture.fileName}`}
