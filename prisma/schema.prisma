@@ -15,31 +15,31 @@ datasource db {
   relationMode = "prisma"
 }
 
-
-
 model Templates {
-  id            Int      @default(autoincrement()) @id
-  createdAt     DateTime @default(now())
-  productName   String
-  clientName	String
-  projectName	String
-  salePrice		Float
-  unitCost		Float
-  productHeight        Float
-  productColor 	   String
-  materialType  String
-  productWeight	Float
-  cutQuality       String
-  productThickness     String
-  productWidth         Float
-  purchasedWidth         Float
-  purchasedHeight        Float
-  purchasedThickness     String
-  materialColorPurchased String
-  materialCosts          Float
-  estimatedAbrasiveUse   Float
-  estimatedCutTime        String
-  estimatedCutDistance	Float
-  suppliers	String
-  fileName  String
+  id                      Int       @default(autoincrement()) @id
+  createdAt               DateTime?  @default(now())
+  productName             String?
+  clientName              String?
+  projectName             String?
+  salePrice               Float?
+  unitCost                Float?
+  productHeight           Float?
+  productColor            String?
+  materialType            String?
+  productWeight           Float?
+  cutQuality              String?
+  productThickness        String?
+  productWidth            Float?
+  purchasedWidth          Float?
+  purchasedHeight         Float?
+  purchasedThickness      String?
+  materialColorPurchased  String?
+  materialCosts           Float?
+  estimatedAbrasiveUse    Float?
+  estimatedCutTime        String?
+  estimatedCutDistance    Float?
+  suppliers               String?
+  productClassification   String?
+  fileName                String?
 }
+

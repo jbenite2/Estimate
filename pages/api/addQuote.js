@@ -34,6 +34,7 @@ async function addQuote(req, res) {
 		estimatedCutTime: body.estimatedCutTime,
 		estimatedCutDistance: parseFloat(body.estimatedCutDistance),
 		suppliers: body.suppliers,
+		productClassification: body.productClassification,
         fileName: body.file,
       },
     });
