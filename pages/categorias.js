@@ -1,4 +1,4 @@
-import Header from '../components/Header';
+import Header from '../components/header';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import './categorias.scss';
