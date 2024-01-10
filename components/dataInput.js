@@ -8,6 +8,7 @@ const thicknessOptions = ['1/64"', '1/32"', '1/16"', '1/8"',
 ];
 const materialColorOptions = ['Clear', 'Mate Black', 'White', 'Gray', 'Red', 'Blue'];
 const materialOptions = ['Wood', 'Aluminum', 'PVC', 'Stainless Steel', 'Plain Steel', 'Glass', 'Mirror', 'Acrylic', 'Stone', 'Rubber', 'Galvanized']
+const productClassificationOptions = ['barandas_CNC_Cut', 'barandas_horizontales', 'barandas_vidrio', 'barandas_cable', 'barandas_picket']
 
 const InputComponent = ({ onSubmit }) => {
   const [loading, setLoading] = useState(false);
@@ -32,6 +33,7 @@ const InputComponent = ({ onSubmit }) => {
   const [estimatedCutDistance, setEstimatedCutDistance] = useState('');
   const [estimatedCutTime, setEstimatedCutTime] = useState('00:00:00');
   const [suppliers, setSuppliers] = useState('');
+  const [productClassification, setProductClassification] = useState('');
 
   const isValidStopwatchTime = (inputTime) => {
     return true;
@@ -69,7 +71,8 @@ const InputComponent = ({ onSubmit }) => {
       estimatedAbrasiveUse,
 	  estimatedCutTime,
 	  estimatedCutDistance,
-	  suppliers
+	  suppliers,
+	  productClassification
 	};
 	onSubmit(formData)
 	setTimeout(() => {
@@ -106,6 +109,21 @@ const InputComponent = ({ onSubmit }) => {
           value={projectName}
           onChange={(e) => setProjectName(e.target.value)}
         />
+      </label>
+      <label style={{ marginTop: '0px' }} className="input-label">
+        Product Classification:
+        <select
+          className="input-field"
+          value={productClassification}
+          onChange={(e) => setProductClassification(e.target.value)}
+        >
+          <option value=""> </option>
+          {productClassificationOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </label>
       <label style={{ marginTop: '50px' }} className="input-label">
         Sale Price ($):

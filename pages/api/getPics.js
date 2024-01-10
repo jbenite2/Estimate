@@ -10,11 +10,17 @@ export default async function handle(req, res) {
 
 async function getPics(req, res) {
     const prisma = new PrismaClient();
-    // const body = req.body;
+	const prodClass = req.query.productClassification;
+	console.log("prodClass")
+	console.log(prodClass)
     try {
         const pics = await prisma.templates.findMany({
+			where: {
+				productClassification: prodClass,
+			},
             select: {
                 fileName: true, // Include only the fileName column
+				id: true,
             },
         });
 

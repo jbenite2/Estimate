@@ -4,27 +4,28 @@
 
 Table Templates {
   id Int [pk, increment]
-  createdAt DateTime [default: `now()`, not null]
-  productName String [not null]
-  clientName String [not null]
-  projectName String [not null]
-  salePrice Float [not null]
-  unitCost Float [not null]
-  productHeight Float [not null]
-  productColor String [not null]
-  materialType String [not null]
-  productWeight Float [not null]
-  cutQuality String [not null]
-  productThickness String [not null]
-  productWidth Float [not null]
-  purchasedWidth Float [not null]
-  purchasedHeight Float [not null]
-  purchasedThickness String [not null]
-  materialColorPurchased String [not null]
-  materialCosts Float [not null]
-  estimatedAbrasiveUse Float [not null]
-  estimatedCutTime String [not null]
-  estimatedCutDistance Float [not null]
-  suppliers String [not null]
-  fileName String [not null]
+  createdAt DateTime [default: `now()`]
+  productName String
+  clientName String
+  projectName String
+  salePrice Float
+  unitCost Float
+  productHeight Float
+  productColor String
+  materialType String
+  productWeight Float
+  cutQuality String
+  productThickness String
+  productWidth Float
+  purchasedWidth Float
+  purchasedHeight Float
+  purchasedThickness String
+  materialColorPurchased String
+  materialCosts Float
+  estimatedAbrasiveUse Float
+  estimatedCutTime String
+  estimatedCutDistance Float
+  suppliers String
+  productClassification String
+  fileName String
 }
