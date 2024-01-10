@@ -2,7 +2,7 @@ import '../categorias.scss';
 import Header from '../../components/header';
 import { useRouter } from 'next/router';
 
-export default function barandas() {
+export default function Barandas() {
 	const router = useRouter();
 	return (
 		<div>
