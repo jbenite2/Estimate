@@ -100,6 +100,7 @@ export default function TemplateList() {
 						<button><Link className='Link' href={product+'/waterJet'}>Water Jet</Link></button>
 						<button><Link className='Link' href={product+'/productoFinal'}>Producto Final</Link></button>
 						<button><Link className='Link' href={product+'/suplidor'}>Suplidor</Link></button>
+						<button><Link className='Link' href={product+'/metricas'}>Métricas</Link></button>
 					</div>
 				</div>
 			  )}
