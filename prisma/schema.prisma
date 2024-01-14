@@ -28,6 +28,11 @@ model Templates {
   materialType            String?
   productWeight           Float?
   cutQuality              String?
+  corte 				 Int?
+  ensamblaje 			 Int?
+  soldadura 			 Int?
+  pulido 				 Int?
+  instalacion 			 Int?
   productThickness        String?
   productWidth            Float?
   purchasedWidth          Float?

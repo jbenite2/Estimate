@@ -23,6 +23,11 @@ const InputComponent = ({ onSubmit }) => {
   const [productHeight, setProductHeight] = useState('');
   const [productWeight, setProductWeight] = useState('');
   const [productColor, setProductColor] = useState('');
+  const [corte, setCorte] = useState('');
+  const [ensamblaje, setEnsamblaje] = useState('');
+  const [soldadura, setSoldadura] = useState('');
+  const [pulido, setPulido] = useState('');
+  const [instalacion, setInstalacion] = useState('');
   const [purchasedWidth, setPurchasedWidth] = useState('');
   const [purchasedHeight, setPurchasedHeight] = useState('');
   const [purchasedThickness, setPurchasedThickness] = useState('');
@@ -62,6 +67,11 @@ const InputComponent = ({ onSubmit }) => {
       productHeight,
 	  productWeight,
       productColor,
+	  corte,
+	  ensamblaje,
+	  soldadura,
+	  pulido,
+	  instalacion,
       purchasedWidth,
       purchasedHeight,
       purchasedThickness,
@@ -135,7 +145,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label style={{ marginTop: '0px' }} className="input-label">
-        Unit Cost ($):
+        Cost ($):
         <input
           className="input-field"
           type="text"
@@ -217,6 +227,57 @@ const InputComponent = ({ onSubmit }) => {
             </option>
           ))}
         </select>
+      </label>
+	  <h3 style={{ marginTop: '50px' }}>Métricas de Producción</h3>
+      <label className="input-label">
+         Corte (minutos):
+        <input
+          className="input-field"
+          type="number"
+          step="0.01"
+          value={corte}
+          onChange={(e) => setCorte(e.target.value)}
+        />
+      </label>
+      <label className="input-label">
+         Ensamblaje (minutos):
+        <input
+          className="input-field"
+          type="number"
+          step="0.01"
+          value={ensamblaje}
+          onChange={(e) => setEnsamblaje(e.target.value)}
+        />
+      </label>
+      <label className="input-label">
+         Soldadura (minutos):
+        <input
+          className="input-field"
+          type="number"
+          step="0.01"
+          value={soldadura}
+          onChange={(e) => setSoldadura(e.target.value)}
+        />
+      </label>
+      <label className="input-label">
+         Pulido (minutos):
+        <input
+          className="input-field"
+          type="number"
+          step="0.01"
+          value={pulido}
+          onChange={(e) => setPulido(e.target.value)}
+        />
+      </label>
+      <label className="input-label">
+	    Instalación (minutos):
+        <input
+          className="input-field"
+          type="number"
+          step="0.01"
+          value={instalacion}
+          onChange={(e) => setInstalacion(e.target.value)}
+        />
       </label>
       <label style={{ marginTop: '50px' }} className="input-label">
         Purchased Width (feet):
