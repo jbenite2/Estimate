@@ -252,7 +252,6 @@ const InputComponent = ({ onSubmit }) => {
           ))}
         </select>
       </label>
-	  <h3 style={{ marginTop: '50px' }}>Métricas de Producción</h3>
       <label className="input-label">
          Corte (minutos):
         <input
