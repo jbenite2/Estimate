@@ -184,7 +184,7 @@ const InputComponent = ({ onSubmit }) => {
         </select>
       </label>
       <label className="input-label">
-        Product Width (feet):
+        Product Length(feet):
         <input
           className="input-field"
           type="number"

@@ -4,11 +4,6 @@ import Header from '../../../components/header'
 import Link from 'next/link'
 import './extraInfo.css'
 
-
-
-//Come back to this page once I update template page
-
-
 export default function Metricas() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,24 +11,21 @@ export default function Metricas() {
   const { product } = router.query;
   const [lf, setLf] = useState(0);
 
-
   useEffect(() => {
-	  if (product){
-		  const incrementedProduct = parseInt(product, 10);
-		fetchProductData(incrementedProduct.toString());
-	  }
+    if (product) {
+      const incrementedProduct = parseInt(product, 10);
+      fetchProductData(incrementedProduct.toString());
+    }
   }, [product]);
 
   const fetchProductData = async (product) => {
     try {
-      // Call the backend API endpoint using the fetch API
-		const response = await fetch(`/api/getAllProjectInfo?index=${product}`, {
+      const response = await fetch(`/api/getAllProjectInfo?index=${product}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-      })
-      // Parse the response data
+      });
       const info = await response.json();
       setData(info);
     } catch (error) {
@@ -42,75 +34,77 @@ export default function Metricas() {
   };
 
   useEffect(() => {
-      setLoading(false); 
-	  console.log(data);
+    setLoading(false);
+    console.log(data);
   }, [data]);
-	return (
-  <div className='wholePage'>
-    <Header />
-    <div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div className='ProductDetailsContainer'>
-          <h1>Métricas</h1>
-          <div className='KeyInfoContainer'>
-            <div className='KeyInfo KeyInfo1'>
-              <p>Corte: {data.corte !== undefined ? data.corte.toFixed(2) : 'N/A'} minutos</p>
-              <p>Ensamblaje: {data.ensamblaje !== undefined ? data.ensamblaje.toFixed(2) : 'N/A'} minutos</p>
-              <p>Soldadura: {data.soldadura !== undefined ? data.soldadura.toFixed(2) : 'N/A'} minutos</p>
-              <p>Pulido: {data.pulido !== undefined ? data.pulido.toFixed(2) : 'N/A'} minutos</p>
-              <p>Instalación: {data.instalacion !== undefined ? data.instalacion.toFixed(2) : 'N/A'} minutos</p>
-            </div>
-            <h3 style={{ background: 'yellow' }}>Fabricación</h3>
-            <input
-              type='number'
-              placeholder='Pies Lineares'
-              onChange={(e) => setLf(e.target.value)}
-            ></input>
-            <p>
-              Corte: {data.corte !== undefined ? `${data.corte.toFixed(2)} x ${lf}' = ${(lf * data.corte).toFixed(2)} minutos` : 'N/A'}
-            </p>
-			<p>
-				Ensamblaje: {data.ensamblaje !== undefined ? `${data.ensamblaje.toFixed(2)} x ${lf}' = ${(lf * data.ensamblaje).toFixed(2)} minutos` : 'N/A'}
-			</p>
-			<p>
-				Soldadura: {data.soldadura !== undefined ? `${data.soldadura.toFixed(2)} x ${lf}' = ${(lf * data.soldadura).toFixed(2)} minutos` : 'N/A'}	
-			</p>
-			<p>
-				Pulido: {data.pulido !== undefined ? `${data.pulido.toFixed(2)} x ${lf}' = ${(lf * data.pulido).toFixed(2)} minutos` : 'N/A'}
-			</p>
-			<p>+  ----------------------------------------</p>
-            <p>
-              Total: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-                ? (lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido).toFixed(2)
-                : 'N/A'} minutos
-            </p>
-            <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-                ? ((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60).toFixed(2)
+
+  return (
+    <div className='wholePage'>
+      <Header />
+      <div>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <div className='ProductDetailsContainer'>
+            <h1>Métricas</h1>
+            <div className='KeyInfoContainer'>
+              <div className='KeyInfo KeyInfo1'>
+                <p>Corte: {data.corte !== undefined ? data.corte.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
+                <p>Ensamblaje: {data.ensamblaje !== undefined ? data.ensamblaje.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
+                <p>Soldadura: {data.soldadura !== undefined ? data.soldadura.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
+                <p>Pulido: {data.pulido !== undefined ? data.pulido.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
+                <p>Instalación: {data.instalacion !== undefined ? data.instalacion.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
+              </div>
+              <h3 style={{ background: 'yellow' }}>Fabricación</h3>
+              <input
+                type='number'
+                placeholder='Pies Lineares'
+                onChange={(e) => setLf(e.target.value)}
+              ></input>
+              <p>
+                Corte: {data.corte !== undefined ? `${data.corte.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.corte).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+              </p>
+              <p>
+                Ensamblaje: {data.ensamblaje !== undefined ? `${data.ensamblaje.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.ensamblaje).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+              </p>
+              <p>
+                Soldadura: {data.soldadura !== undefined ? `${data.soldadura.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.soldadura).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+              </p>
+              <p>
+                Pulido: {data.pulido !== undefined ? `${data.pulido.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.pulido).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+              </p>
+              <p>+  ----------------------------------------</p>
+              <p>
+                Total: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+                  ? (lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido).toFixed(2).toLocaleString()
+                  : 'N/A'} minutos
+              </p>
+              <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+                ? ((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60).toFixed(2).toLocaleString()
                 : 'N/A'} horas * $18 = {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-                ? `$${(((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60) * 18).toFixed(2)} (costo de fabricación)`
+                ? `$${(((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60) * 18).toFixed(2).toLocaleString()} (costo de fabricación)`
                 : 'N/A'}
-            </p>
+              </p>
 
-            <h3 style={{ background: 'yellow' }}>Instalación</h3>
-            <p>
-              Instalación: {data.instalacion !== undefined ? `${data.instalacion.toFixed(2)} x ${lf}' = ${(lf * data.instalacion).toFixed(2)} minutos` : 'N/A'}
-            </p>
-            <p>{data.instalacion !== undefined ? ((lf * data.instalacion) / 60).toFixed(2) : 'N/A'} horas * $27 = {data.instalacion !== undefined ? `$${((lf * data.instalacion) / 60 * 27).toFixed(2)} (costo de instalación)` : 'N/A'}</p>
+              <h3 style={{ background: 'yellow' }}>Instalación</h3>
+              <p>
+                Instalación: {data.instalacion !== undefined ? `${data.instalacion.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.instalacion).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+              </p>
+              <p>{data.instalacion !== undefined ? ((lf * data.instalacion) / 60).toFixed(2).toLocaleString() : 'N/A'} horas * $27 = {data.instalacion !== undefined ? `$${((lf * data.instalacion) / 60 * 27).toFixed(2).toLocaleString()} (costo de instalación)` : 'N/A'}</p>
 
-            <h3 style={{ marginTop: '70px', background: 'yellow' }}>Total</h3>
-            <p>
-              Labor: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined && data.instalacion !== undefined
-                ? `$${(((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60) * 18 + ((lf * data.instalacion) / 60 * 27)).toFixed(2)}`
-                : 'N/A'}
-            </p>
+              <h3 style={{ marginTop: '70px', background: 'yellow' }}>Total</h3>
+              <p>
+                Labor: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined && data.instalacion !== undefined
+                  ? `$${(((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60) * 18 + ((lf * data.instalacion) / 60 * 27)).toFixed(2).toLocaleString()}`
+                  : 'N/A'}
+              </p>
 
-            <button className='backButton' onClick={() => router.back()}>Back</button>
+              <button className='backButton' onClick={() => router.back()}>Back</button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
 }
+
