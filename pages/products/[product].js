@@ -86,17 +86,17 @@ export default function TemplateList() {
 					<h1>Información Clave</h1>
 					<div className='KeyInfoContainer'>
 					<div className='KeyInfo KeyInfo1'>
-						<p>Precio de Venta Final: ${data.salePrice.toLocaleString()}</p>
-						<p>Margen de Ganancia: {profitMargin.toLocaleString()}%</p>
-						<p>Precio de Venta por Pie Cuadrado: ${(data.salePrice / data.productWidth / data.productHeight).toFixed(2).toLocaleString()}</p>
-						<p>Precio de Venta por Pie Lineal: ${Number((data.salePrice / data.productWidth).toLocaleString())}</p>
+						<p>Precio de Venta Final: ${data.salePrice}</p>
+						<p>Margen de Ganancia: {profitMargin}%</p>
+						<p>Precio de Venta por Pie Cuadrado: ${(data.salePrice / data.productWidth / data.productHeight).toFixed(2)}</p>
+						<p>Precio de Venta por Pie Lineal: ${Number((data.salePrice / data.productWidth))}</p>
 					</div>
 					<div className='KeyInfo KeyInfo2'>
-						<p>Cost del Proyecto Final: ${data.unitCost.toLocaleString()}</p>
-						<p>Costo por Pie Cuadrado: ${(data.unitCost/ data.productWidth / data.productHeight).toFixed(2).toLocaleString()}</p>
-						<p>Costo por Pie Lineal: ${(data.unitCost / data.productWidth).toFixed(2).toLocaleString()}</p>
-						<p>Altura Total: {data.productHeight.toLocaleString()} ft</p>
-						<p>Pies Lineales Totales: {data.productWidth.toLocaleString()} ft</p>
+						<p>Cost del Proyecto Final: ${data.unitCost}</p>
+						<p>Costo por Pie Cuadrado: ${(data.unitCost/ data.productWidth / data.productHeight).toFixed(2)}</p>
+						<p>Costo por Pie Lineal: ${(data.unitCost / data.productWidth).toFixed(2)}</p>
+						<p>Altura Total: {data.productHeight} ft</p>
+						<p>Pies Lineales Totales: {data.productWidth} ft</p>
 					</div>
 				</div>
 					<div className='MoreInfoContainer'>
