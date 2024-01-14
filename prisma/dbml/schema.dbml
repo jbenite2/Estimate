@@ -5,6 +5,9 @@
 Table Templates {
   id Int [pk, increment]
   createdAt DateTime [default: `now()`]
+  projectStartDate DateTime
+  projectEndDate DateTime
+  note String
   productName String
   clientName String
   projectName String

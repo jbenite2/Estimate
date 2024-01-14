@@ -39,6 +39,9 @@ const InputComponent = ({ onSubmit }) => {
   const [estimatedCutTime, setEstimatedCutTime] = useState('00:00:00');
   const [suppliers, setSuppliers] = useState('');
   const [productClassification, setProductClassification] = useState('');
+  const [projectStartDate, setProjectStartDate] = useState('');
+  const [projectEndDate, setProjectEndDate] = useState('');
+  const [note, setNote] = useState('');
 
   const isValidStopwatchTime = (inputTime) => {
     return true;
@@ -72,6 +75,9 @@ const InputComponent = ({ onSubmit }) => {
 	  soldadura,
 	  pulido,
 	  instalacion,
+	  note,
+	  projectStartDate,
+	  projectEndDate,
       purchasedWidth,
       purchasedHeight,
       purchasedThickness,
@@ -93,6 +99,24 @@ const InputComponent = ({ onSubmit }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
+      <label style={{ marginTop: '0px' }} className="input-label">
+        Project Start Date:
+        <input
+          className="input-field"
+          type="date"
+          value={projectStartDate}
+          onChange={(e) => setProjectStartDate(e.target.value)}
+        />
+      </label>
+      <label style={{ marginTop: '0px' }} className="input-label">
+        Project End Date:
+        <input
+          className="input-field"
+          type="date"
+          value={projectEndDate}
+          onChange={(e) => setProjectEndDate(e.target.value)}
+        />
+      </label>
       <label style={{ marginTop: '50px' }} className="input-label">
         Product Name:
         <input
@@ -389,6 +413,15 @@ const InputComponent = ({ onSubmit }) => {
           type="text"
           value={estimatedCutDistance}
           onChange={(e) => setEstimatedCutDistance(e.target.value)}
+        />
+      </label>
+      <label style={{ marginTop: '50px' }} className="input-label">
+        Notes:
+        <input
+          className="input-field"
+          type="text"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
         />
       </label>
       <button

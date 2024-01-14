@@ -18,6 +18,9 @@ datasource db {
 model Templates {
   id                      Int       @default(autoincrement()) @id
   createdAt               DateTime?  @default(now())
+  projectStartDate			DateTime?
+  projectEndDate				DateTime?
+  note                   String?
   productName             String?
   clientName              String?
   projectName             String?
