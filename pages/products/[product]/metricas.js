@@ -49,13 +49,6 @@ export default function Metricas() {
           <div className='ProductDetailsContainer'>
             <h1>Métricas</h1>
             <div className='KeyInfoContainer'>
-              <div className='KeyInfo KeyInfo1'>
-                <p>Corte: {data.corte !== undefined && data.corte !== null ? data.corte.toFixed(2).toLocaleString() : 'N/A'} horas</p>
-                <p>Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? data.ensamblaje.toFixed(2).toLocaleString() : 'N/A'} horas</p>
-                <p>Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? data.soldadura.toFixed(2).toLocaleString() : 'N/A'} horas</p>
-                <p>Pulido: {data.pulido !== undefined && data.pulido !== null ? data.pulido.toFixed(2).toLocaleString() : 'N/A'} horas</p>
-                <p>Instalacion: {data.instalacion !== undefined && data.instalacion !== null ? data.instalacion.toFixed(2).toLocaleString() : 'N/A'} horas</p>
-              </div>
               <input
                 type='number'
                 placeholder='Pies Lineares'
