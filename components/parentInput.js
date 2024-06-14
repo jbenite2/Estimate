@@ -22,6 +22,9 @@ export default function ParentComponent() {
 
 	  const url = await generateUploadURL()
 
+
+	  console.log(url)
+
 	  return url
 
       // await axios.post("/api/image", formData);
@@ -33,16 +36,17 @@ export default function ParentComponent() {
 
   const handleFormSubmit = async (formData) => {
     // Add the logic to set the selected file name to the formData
-	  // const url = await handleUpload(); 
 	  const url = await handleUpload()
+		
 	  if (!url) return
 	  const imageUrl = url.split('?')[0]
 
+
+
     if (selectedFile) {
+
       formData.file = imageUrl
     }
-
-	  console.log(formData)
   
     try {
       // Call the backend API endpoint using the fetch API
