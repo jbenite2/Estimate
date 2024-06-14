@@ -95,8 +95,7 @@ button:hover {
 	.ProductDetailsContainer{
 		width: 50vh;
 	}
-	.moreInfoContainer{
-		margin-left: 80px;
+	.MoreInfoContainer{
 		flex-direction: column;
 	}
 	.PictureContainer {
