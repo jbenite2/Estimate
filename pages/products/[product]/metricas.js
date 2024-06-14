@@ -54,51 +54,67 @@ export default function Metricas() {
                 <p>Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? data.ensamblaje.toFixed(2).toLocaleString() : 'N/A'} horas</p>
                 <p>Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? data.soldadura.toFixed(2).toLocaleString() : 'N/A'} horas</p>
                 <p>Pulido: {data.pulido !== undefined && data.pulido !== null ? data.pulido.toFixed(2).toLocaleString() : 'N/A'} horas</p>
-                <p>Instalacin: {data.instalacion !== undefined && data.instalacion !== null ? data.instalacion.toFixed(2).toLocaleString() : 'N/A'} horas</p>
+                <p>Instalacion: {data.instalacion !== undefined && data.instalacion !== null ? data.instalacion.toFixed(2).toLocaleString() : 'N/A'} horas</p>
               </div>
-              <h3 style={{ background: 'yellow' }}>Fabricación</h3>
               <input
                 type='number'
                 placeholder='Pies Lineares'
                 onChange={(e) => setLf(parseFloat(e.target.value) || 0)}
               />
+              <h3 style={{ background: 'yellow' }}>Fabricación</h3>
               <p>
-                Corte: {data.corte !== undefined && data.corte !== null ? `${data.corte.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.corte).toFixed(2).toLocaleString()} horas` : 'N/A'}
+                Corte: {data.corte !== undefined && data.corte !== null ? `${data.corte.toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>
-                Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? `${data.ensamblaje.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.ensamblaje).toFixed(2).toLocaleString()} horas` : 'N/A'}
+                Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? `${data.ensamblaje.toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>
-                Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? `${data.soldadura.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.soldadura).toFixed(2).toLocaleString()} horas` : 'N/A'}
+                Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? `${data.soldadura.toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>
-                Pulido: {data.pulido !== undefined && data.pulido !== null ? `${data.pulido.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.pulido).toFixed(2).toLocaleString()} horas` : 'N/A'}
+                Pulido: {data.pulido !== undefined && data.pulido !== null ? `${data.pulido.toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>+  ----------------------------------------</p>
               <p>
                 Total: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
                   ? (lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido).toFixed(2).toLocaleString()
                   : 'N/A'} horas
-              </p>
-              <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-                ? ((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60).toFixed(2).toLocaleString()
-                : 'N/A'} horas * $18 = {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-                ? `$${(((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60) * 18).toFixed(2).toLocaleString()} (costo de fabricación)`
+			  </p>
+			  <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+                ? ((data.corte + data.ensamblaje + data.soldadura + data.pulido)).toFixed(2).toLocaleString()
+                : 'N/A'} horas * $19 = {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+                ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19).toFixed(2).toLocaleString()} (costo de fabricación)`
                 : 'N/A'}
               </p>
 
+              <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+                ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19).toFixed(2).toLocaleString()}`
+					  : 'N/A'}/ {lf} pies lineales = {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+							  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 / lf).toFixed(2).toLocaleString()}`
+					  : 'N/A'} (costo de fabricación por pie lineal) 
+			  </p>
+			  
+
               <h3 style={{ background: 'yellow' }}>Instalación</h3>
               <p>
-                Instalación: {data.instalacion !== undefined && data.instalacion !== null ? `${data.instalacion.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.instalacion).toFixed(2).toLocaleString()} horas` : 'N/A'}
+                Instalación: {data.instalacion !== undefined && data.instalacion !== null ? `${data.instalacion.toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
-              <p>{data.instalacion !== undefined && data.instalacion !== null ? ((lf * data.instalacion) / 60).toFixed(2).toLocaleString() : 'N/A'} horas * $27 = {data.instalacion !== undefined && data.instalacion !== null ? `$${((lf * data.instalacion) / 60 * 27).toFixed(2).toLocaleString()} (costo de instalación)` : 'N/A'}</p>
+			  <p>{data.instalacion !== undefined && data.instalacion !== null ? ( data.instalacion ).toFixed(2).toLocaleString() : 'N/A'} horas * $27 = {data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27).toFixed(2).toLocaleString()} (costo de instalación)` : 'N/A'}
+			  </p>
+			  <p>{data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27).toFixed(2).toLocaleString()}` : 'N/A'}/ {lf} pies lineales = {data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27 / lf).toFixed(2).toLocaleString()} (costo de instalación por pie lineal)` : 'N/A'}
+			  </p>
 
               <h3 style={{ marginTop: '70px', background: 'yellow' }}>Total</h3>
-              <p>
-                Labor: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined && data.instalacion !== undefined
-                  ? `$${(((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60) * 18 + ((lf * data.instalacion) / 60 * 27)).toFixed(2).toLocaleString()}`
-                  : 'N/A'}
-              </p>
+
+              <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+							  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 + data.instalacion * 27).toFixed(2).toLocaleString()}`
+					  : 'N/A'} (costo total) 
+			  </p>
+              <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+							  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 / lf + data.instalacion * 27/ lf).toFixed(2).toLocaleString()}`
+					  : 'N/A'} (costo total por pie lineal) 
+			  </p>
+
 
               <button className='backButton' onClick={() => router.back()}>Back</button>
             </div>
