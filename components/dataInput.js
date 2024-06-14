@@ -253,7 +253,7 @@ const InputComponent = ({ onSubmit }) => {
         </select>
       </label>
       <label className="input-label">
-         Corte (minutos):
+         Corte (horas):
         <input
           className="input-field"
           type="number"
@@ -263,7 +263,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-         Ensamblaje (minutos):
+         Ensamblaje (horas):
         <input
           className="input-field"
           type="number"
@@ -273,7 +273,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-         Soldadura (minutos):
+         Soldadura (horas):
         <input
           className="input-field"
           type="number"
@@ -283,7 +283,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-         Pulido (minutos):
+         Pulido (horas):
         <input
           className="input-field"
           type="number"
@@ -293,7 +293,7 @@ const InputComponent = ({ onSubmit }) => {
         />
       </label>
       <label className="input-label">
-	    Instalación (minutos):
+	    Instalación (horas):
         <input
           className="input-field"
           type="number"

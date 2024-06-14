@@ -50,11 +50,11 @@ export default function Metricas() {
             <h1>Métricas</h1>
             <div className='KeyInfoContainer'>
               <div className='KeyInfo KeyInfo1'>
-                <p>Corte: {data.corte !== undefined && data.corte !== null ? data.corte.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
-                <p>Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? data.ensamblaje.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
-                <p>Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? data.soldadura.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
-                <p>Pulido: {data.pulido !== undefined && data.pulido !== null ? data.pulido.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
-                <p>Instalacin: {data.instalacion !== undefined && data.instalacion !== null ? data.instalacion.toFixed(2).toLocaleString() : 'N/A'} minutos</p>
+                <p>Corte: {data.corte !== undefined && data.corte !== null ? data.corte.toFixed(2).toLocaleString() : 'N/A'} horas</p>
+                <p>Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? data.ensamblaje.toFixed(2).toLocaleString() : 'N/A'} horas</p>
+                <p>Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? data.soldadura.toFixed(2).toLocaleString() : 'N/A'} horas</p>
+                <p>Pulido: {data.pulido !== undefined && data.pulido !== null ? data.pulido.toFixed(2).toLocaleString() : 'N/A'} horas</p>
+                <p>Instalacin: {data.instalacion !== undefined && data.instalacion !== null ? data.instalacion.toFixed(2).toLocaleString() : 'N/A'} horas</p>
               </div>
               <h3 style={{ background: 'yellow' }}>Fabricación</h3>
               <input
@@ -63,22 +63,22 @@ export default function Metricas() {
                 onChange={(e) => setLf(parseFloat(e.target.value) || 0)}
               />
               <p>
-                Corte: {data.corte !== undefined && data.corte !== null ? `${data.corte.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.corte).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+                Corte: {data.corte !== undefined && data.corte !== null ? `${data.corte.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.corte).toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>
-                Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? `${data.ensamblaje.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.ensamblaje).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+                Ensamblaje: {data.ensamblaje !== undefined && data.ensamblaje !== null ? `${data.ensamblaje.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.ensamblaje).toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>
-                Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? `${data.soldadura.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.soldadura).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+                Soldadura: {data.soldadura !== undefined && data.soldadura !== null ? `${data.soldadura.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.soldadura).toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>
-                Pulido: {data.pulido !== undefined && data.pulido !== null ? `${data.pulido.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.pulido).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+                Pulido: {data.pulido !== undefined && data.pulido !== null ? `${data.pulido.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.pulido).toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>+  ----------------------------------------</p>
               <p>
                 Total: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
                   ? (lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido).toFixed(2).toLocaleString()
-                  : 'N/A'} minutos
+                  : 'N/A'} horas
               </p>
               <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
                 ? ((lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido) / 60).toFixed(2).toLocaleString()
@@ -89,7 +89,7 @@ export default function Metricas() {
 
               <h3 style={{ background: 'yellow' }}>Instalación</h3>
               <p>
-                Instalación: {data.instalacion !== undefined && data.instalacion !== null ? `${data.instalacion.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.instalacion).toFixed(2).toLocaleString()} minutos` : 'N/A'}
+                Instalación: {data.instalacion !== undefined && data.instalacion !== null ? `${data.instalacion.toFixed(2).toLocaleString()} x ${lf}' = ${(lf * data.instalacion).toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
               <p>{data.instalacion !== undefined && data.instalacion !== null ? ((lf * data.instalacion) / 60).toFixed(2).toLocaleString() : 'N/A'} horas * $27 = {data.instalacion !== undefined && data.instalacion !== null ? `$${((lf * data.instalacion) / 60 * 27).toFixed(2).toLocaleString()} (costo de instalación)` : 'N/A'}</p>
 
