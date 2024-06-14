@@ -95,4 +95,23 @@ button:hover {
 	.ProductDetailsContainer{
 		width: 50vh;
 	}
+	.moreInfoContainer{
+		margin-left: 80px;
+		flex-direction: column;
+	}
+	.PictureContainer {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 100%; /* Ensure it takes the full width of the container */
+	  text-align: center; /* Center the text within the container */
+	}
+
+	.Picture {
+	  max-width: 40vh;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	}
+
 }
