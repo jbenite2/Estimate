@@ -103,7 +103,7 @@ export default function TemplateList() {
                 <p>Precio de Venta por Pie Lineal: {data.salePrice && data.productWidth ? `$${(data.salePrice / data.productWidth).toFixed(2)}` : 'N/A'}</p>
               </div>
               <div className='KeyInfo KeyInfo2'>
-                <p>Cost del Proyecto Final: ${data.unitCost}</p>
+                <p>Costo del Proyecto Final: ${data.unitCost}</p>
                 <p>Costo por Pie Cuadrado: {data.unitCost && data.productWidth && data.productHeight ? `$${(data.unitCost / data.productWidth / data.productHeight).toFixed(2)}` : 'N/A'}</p>
                 <p>Costo por Pie Lineal: {data.unitCost && data.productWidth ? `$${(data.unitCost / data.productWidth).toFixed(2)}` : 'N/A'}</p>
                 <p>Altura Total: {data.productHeight} ft</p>
