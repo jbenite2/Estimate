@@ -1,11 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Header from '../../../components/header'
 import Link from 'next/link'
 import './extraInfo.css'
 
-
-export default function ProductoFinal() {
+export default function WaterJet() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -44,28 +42,25 @@ export default function ProductoFinal() {
 
   return (
 	  <div className='wholePage'>
-		  <Header />
 		  <div>
 			  {loading ? (
 				<p>Loading...</p>
 			  ) : (
 				<div className='ProductDetailsContainer'>
-					<h1>Producto Final Data</h1>
+					<h1>Water Jet Stats</h1>
 					<div className='KeyInfoContainer'>
 						<div className='KeyInfo KeyInfo1'>
-							<p>Color: {data.productColor}</p>
-							<p>Altura: {data.productHeight}</p>
-							<p>Ancho: {data.productWidth}</p>
-							<p>Espesor: {data.productThickness}</p>
-							<p>Peso: {data.productWeight}</p>
-						<div className='PictureContainer'>
-							<img
-								src={`${data.fileName}`}
-								alt={`Picture is loading...`}
-								className='Picture'
-							  />
+							<p>Calidad de Corte: {data.cutQuality}</p>
+							<p>Cantidad de Abrasivo Estimada: {data.estimatedAbrasiveUse}</p>
+							<p>Distancia de Corte Estimada: {data.estimatedCutDistance}</p>
+							<p>Tiempo de Corte Estimado: {data.estimatedCutTime}</p>
 						</div>
-						</div>
+					<div className='PictureContainer'>
+						<img
+							src={`/cutting.png`}
+							className='Picture'
+						  />
+					</div>
 					<button className='backButton' onClick={() => router.back()}>Back</button>
 					</div>
 				</div>
@@ -75,4 +70,3 @@ export default function ProductoFinal() {
 
   );
 } 
-

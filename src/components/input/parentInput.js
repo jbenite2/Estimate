@@ -1,8 +1,8 @@
 import InputComponent from './dataInput';
 import { useState } from "react";
 import axios from "axios";
-import handle from '../pages/api/addQuote';
-import { generateUploadURL } from '../pages/api/upload' 
+import handle from '../../pages/api/addQuote';
+import { generateUploadURL } from '../../pages/api/upload' 
 import './parentInput.css'
 
 export default function ParentComponent() {

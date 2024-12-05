@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Header from '../../../components/header';
 import Link from 'next/link';
 import './extraInfo.css';
 
@@ -41,7 +40,6 @@ export default function Metricas() {
 
   return (
     <div className='wholePage'>
-      <Header />
       <div>
         {loading ? (
           <p>Loading...</p>

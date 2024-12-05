@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Header from '../../components/header';
 import './[product].css';
 import Link from 'next/link';
 
@@ -70,7 +69,6 @@ export default function TemplateList() {
 
   return (
     <div className='wholePage'>
-      <Header />
       <div>
         {loading ? (
           <p>Loading...</p>

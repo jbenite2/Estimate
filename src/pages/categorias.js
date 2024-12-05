@@ -1,7 +1,5 @@
-import Header from '../components/header';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import './categorias.scss';
+import './styling/categorias.scss';
 import { useRouter } from 'next/router';
 
 export default function Categorias() {
@@ -10,7 +8,6 @@ export default function Categorias() {
 
   return (
 	<div>
-		<Header />
 		<div class="btnsDiv">
 		  <button type="button" className="btn btn--green" onClick={() => router.push('/collections/barandas')}>Barandas</button>
 		  <button type="button" className="btn btn--red">Escaleras</button>

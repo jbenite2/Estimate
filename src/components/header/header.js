@@ -1,12 +1,10 @@
+'use client'
+
 import './header.css';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 
 export default function Header() {
-    const router = useRouter();
-
-    const navigateTo = (path) => {
-        router.push(path);
-    };
+	const router = useRouter();
 
     return (
         <div className="header">
@@ -16,21 +14,21 @@ export default function Header() {
             <div className="button-container">
                 <button 
                     className="button" 
-                    onClick={() => navigateTo('/categorias')}
+                    onClick={() => router.push('/categorias')}
                 >
                     <img className="book-icon" src="/book-icon.png" alt="Categories Icon" />
                     <span>Categories</span>
                 </button>
                 <button 
                     className="button" 
-                    onClick={() => navigateTo('/quote')}
+                    onClick={() => router.push('/quote')}
                 >
                     <img className="add-icon" src="/add_icon.png" alt="Template Icon" />
-                    <span>Template</span>
+                    <span>Templates</span>
                 </button>
                 <button 
                     className="button" 
-                    onClick={() => navigateTo('/all')}
+                    onClick={() => router.push('/patterns')}
                 >
                     <img className="user-icon" src="/user-icon.png" alt="All Patterns Icon" />
                     <span>All Patterns</span>

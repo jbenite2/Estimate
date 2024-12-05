@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import productData from './productDetail'; // Import your product data here
-import './templateList.css'
+import productData from '../productCard/productDetail'; // Import your product data here
+import './typeList.css'
 
-export default function TemplateList(props) {
+export default function TypeList(props) {
   const [pics, setPics] = useState([]);
   const [loading, setLoading] = useState(true);
   const [localImages, setLocalImages] = useState([]);
