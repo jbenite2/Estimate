@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import './extraInfo.css'
+import Image from 'next/image';
 
 
 export default function ProductoFinal() {
@@ -57,10 +58,13 @@ export default function ProductoFinal() {
 								<p>Espesor: {data.productThickness}</p>
 								<p>Peso: {data.productWeight}</p>
 								<div className='PictureContainer'>
-									<img
+									<Image
 										src={`${data.fileName}`}
 										alt={`Picture is loading...`}
 										className='Picture'
+										width={300}
+										height={300}
+										priority
 									/>
 								</div>
 							</div>

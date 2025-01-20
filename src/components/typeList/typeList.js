@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import productData from '../productCard/productDetail'; // Import your product data here
 import './typeList.css'
 
@@ -9,8 +10,10 @@ export default function TypeList(props) {
   const [localImages, setLocalImages] = useState([]);
 
   useEffect(() => {
-    fetchTemplates(props.productClassification);
-  }, []);
+    if (props.productClassification) {
+      fetchTemplates(props.productClassification);
+    }
+  }, [props.productClassification]);
 
   const fetchTemplates = async (classification) => {
     const encodedClassification = encodeURIComponent(classification);
@@ -49,10 +52,13 @@ export default function TypeList(props) {
           <div className='grid-container'>
             {pics.map((picture, index) => (
               <Link href={`/products/${picture.id - 1}`} key={picture.id - 1}>
-                <img
-                  src={`${picture.fileName}`}
-                  alt={`Picture ${picture.fileName}`}
+                <Image
+                  src={picture.fileName}
+                  alt={`Product ${picture.id}`}
                   className='individualTemplateStyle'
+                  width={300}
+                  height={300}
+                  priority={index < 4}
                 />
               </Link>
             ))}

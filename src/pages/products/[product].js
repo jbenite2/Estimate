@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import './[product].css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function TemplateList() {
   const [data, setData] = useState([]);
@@ -81,10 +82,13 @@ export default function TemplateList() {
               <p>Proyecto: {data.projectName}</p>
             </div>
             <div className='PictureContainer'>
-              <img
-                src={`${data.fileName}`}
-                alt={`Picture ${data.fileName}`}
+              <Image
+                src={data.fileName}
+                alt={`Product ${data.productName || 'preview'}`}
                 className='Picture'
+                width={300}
+                height={300}
+                priority
               />
             </div>
             <div className='DateContainer'>

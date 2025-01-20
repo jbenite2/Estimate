@@ -1,37 +1,38 @@
 import { useState } from "react";
 import axios from "axios";
+import Image from 'next/image';
 
 const Dropzone = ({ dirs }) => {
   const [uploading, setUploading] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleUpload = async ( onFileDrop ) => {
+  const handleUpload = async (onFileDrop) => {
     setUploading(true);
-	  try {
-		  //Fail try except if not file is passed in
-		  if (!selectedFile) return;
-			
-		  //Get secure URL from our server
+    try {
+      //Fail try except if not file is passed in
+      if (!selectedFile) return;
+
+      //Get secure URL from our server
 
 
-		  //Post the image directly to the S3 bucket
-		  
+      //Post the image directly to the S3 bucket
 
 
-		  //Post request to my server to store any extra data
+
+      //Post request to my server to store any extra data
 
 
-		  // Create a FormData object and append the selected file to it
-		  const formData = new FormData();
-		  formData.append("myImage", selectedFile);
+      // Create a FormData object and append the selected file to it
+      const formData = new FormData();
+      formData.append("myImage", selectedFile);
 
-		  // Send the FormData object to your server using axios or fetch API
-		  const { data } = await axios.post("/api/image", formData);
-	} catch (error) {
-		console.log(error)
-	}
-	setUploading(false);
+      // Send the FormData object to your server using axios or fetch API
+      const { data } = await axios.post("/api/image", formData);
+    } catch (error) {
+      console.log(error)
+    }
+    setUploading(false);
   };
 
   return (
@@ -50,7 +51,13 @@ const Dropzone = ({ dirs }) => {
         />
         <div className="w-40 aspect-video rounded flex items-center justify-center border-2 border-dashed cursor-pointer">
           {selectedImage ? (
-            <img src={selectedImage} alt="" />
+            <Image
+              src={selectedImage}
+              alt={`Preview ${selectedFile.name}`}
+              width={100}
+              height={100}
+              style={{ objectFit: 'cover' }}
+            />
           ) : (
             <div
               style={{
@@ -74,7 +81,7 @@ const Dropzone = ({ dirs }) => {
       <button
         onClick={handleUpload}
         disabled={uploading}
-        style={{ opacity: uploading ? ".5" : "1", justifyContent: "center"}}
+        style={{ opacity: uploading ? ".5" : "1", justifyContent: "center" }}
         className="bg-red-600 p-3 w-32 text-center rounded text-white"
       >
         {uploading ? "Uploading.." : "Upload"}

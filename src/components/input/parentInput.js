@@ -2,8 +2,9 @@ import InputComponent from './dataInput';
 import { useState } from "react";
 import axios from "axios";
 import handle from '../../pages/api/addQuote';
-import { generateUploadURL } from '../../pages/api/upload' 
+import { generateUploadURL } from '../../pages/api/upload'
 import './parentInput.css'
+import Image from 'next/image';
 
 export default function ParentComponent() {
   const [file, setFile] = useState(null);
@@ -20,12 +21,12 @@ export default function ParentComponent() {
       const formData = new FormData();
       formData.append("myImage", selectedFile);
 
-	  const url = await generateUploadURL()
+      const url = await generateUploadURL()
 
 
-	  console.log(url)
+      console.log(url)
 
-	  return url
+      return url
 
       // await axios.post("/api/image", formData);
     } catch (error) {
@@ -36,10 +37,10 @@ export default function ParentComponent() {
 
   const handleFormSubmit = async (formData) => {
     // Add the logic to set the selected file name to the formData
-	  const url = await handleUpload()
-		
-	  if (!url) return
-	  const imageUrl = url.split('?')[0]
+    const url = await handleUpload()
+
+    if (!url) return
+    const imageUrl = url.split('?')[0]
 
 
 
@@ -47,7 +48,7 @@ export default function ParentComponent() {
 
       formData.file = imageUrl
     }
-  
+
     try {
       // Call the backend API endpoint using the fetch API
       const response = await fetch('/api/addQuote', {
@@ -56,22 +57,22 @@ export default function ParentComponent() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData, selectedFile.name),
-	  });
+      });
 
-	   // Also try to make a PUT request to the s3 bucket 
-	  const responseAWS = await fetch(url, {
-		method: "PUT",
-		headers: {
-			"Content-Type": "multipart/form-data"
-		},
-		body: selectedFile
-	  })
+      // Also try to make a PUT request to the s3 bucket 
+      const responseAWS = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+        body: selectedFile
+      })
 
 
       // Parse the response data
       const newEntry = await response.json();
-  
-		
+
+
     } catch (error) {
       console.error('Error:', error);
     }
@@ -93,7 +94,13 @@ export default function ParentComponent() {
         />
         <div className="w-40 aspect-video rounded flex items-center justify-center border-2 border-dashed cursor-pointer">
           {selectedImage ? (
-            <img src={selectedImage} className='selectedImageStyle' />
+            <Image
+              src={selectedImage}
+              alt="Preview image"
+              width={200}
+              height={200}
+              style={{ objectFit: 'cover' }}
+            />
           ) : (
             <div
               style={{

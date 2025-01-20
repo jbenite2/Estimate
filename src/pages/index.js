@@ -7,11 +7,15 @@ import Header from '../components/header/header'
 import productData from '../components/productCard/productDetail'
 import { useRouter } from 'next/router';
 
-export default function Home() {
+export async function getServerSideProps() {
   return {
     redirect: {
       destination: '/categorias',
-      permanent: true,
+      permanent: false,
     },
   };
+}
+
+export default function Home() {
+  return null;
 }
