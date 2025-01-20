@@ -1,23 +1,33 @@
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import './styling/categorias.scss';
-import { useRouter } from 'next/router';
+
+const categories = [
+	{ name: 'Barandas', path: '/collections/barandas', icon: '🏗️' },
+	{ name: 'Escaleras', path: '/collections/escaleras', icon: '🪜' },
+	{ name: 'Industriales', path: '/collections/industriales', icon: '🏭' },
+	{ name: 'Portones', path: '/collections/portones', icon: '🚪' },
+	{ name: 'Productos Decorativos', path: '/collections/allProducts', icon: '🎨' },
+	{ name: 'Trelis', path: '/collections/trelis', icon: '🌿' },
+	{ name: 'Verjas', path: '/collections/verjas', icon: '🏰' }
+];
 
 export default function Categorias() {
-  const router = useRouter();
-
-
-  return (
-	<div>
-		<div class="btnsDiv">
-		  <button type="button" className="btn btn--green" onClick={() => router.push('/collections/barandas')}>Barandas</button>
-		  <button type="button" className="btn btn--red">Escaleras</button>
-		  <button type="button" className="btn btn--blue">Industriales</button>
-		  <button type="button" className="btn btn--green">Portones</button>
-		  <button type="button" className="btn btn--yellow" onClick={() => router.push('/collections/allProducts')}>Productos Decorativos</button>
-		  <button type="button" className="btn btn--purple">Trelis</button>
-		  <button type="button" className="btn btn--red">Verjas</button>
+	return (
+		<div className="categories-container">
+			<h1>Categorías</h1>
+			<div className="categories-grid">
+				{categories.map((category) => (
+					<Link
+						key={category.name}
+						href={category.path}
+						className="category-card"
+					>
+						<span className="category-icon">{category.icon}</span>
+						<span className="category-name">{category.name}</span>
+					</Link>
+				))}
+			</div>
 		</div>
-	</div>
-  );
+	);
 }
 

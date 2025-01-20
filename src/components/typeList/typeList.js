@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import productData from '../productCard/productDetail'; // Import your product data here
 import './typeList.css'
 
@@ -12,7 +13,7 @@ export default function TypeList(props) {
   }, []);
 
   const fetchTemplates = async (classification) => {
-	const encodedClassification = encodeURIComponent(classification);
+    const encodedClassification = encodeURIComponent(classification);
     try {
       // Call the backend API endpoint using the fetch API
       const response = await fetch(`/api/getPics?productClassification=${encodedClassification}`, {
@@ -38,26 +39,26 @@ export default function TypeList(props) {
 
   return (
     <div className='broaderDiv'>
-		<div>
-			<h1>Product List</h1>
-		</div>
-		<div className='templateContainer'>
-			  {loading ? (
-				<div>Loading...</div>
-			  ) : (
-				<div>
-					{pics.map((picture, index) => (
-					  <a href={`/products/${picture.id-1 }`} key={picture.id-1}> 
-						<img
-							src={`${picture.fileName}`}
-							alt={`Picture ${picture.fileName}`}
-							className='individualTemplateStyle'
-						/>
-					  </a>
-				  ))}
-				</div>
-			  )}
-		</div>
+      <div className='header'>
+        <h1>Product List</h1>
+      </div>
+      <div className='templateContainer'>
+        {loading ? (
+          <div className='loading'>Loading...</div>
+        ) : (
+          <div className='grid-container'>
+            {pics.map((picture, index) => (
+              <Link href={`/products/${picture.id - 1}`} key={picture.id - 1}>
+                <img
+                  src={`${picture.fileName}`}
+                  alt={`Picture ${picture.fileName}`}
+                  className='individualTemplateStyle'
+                />
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

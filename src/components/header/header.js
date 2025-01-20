@@ -1,40 +1,70 @@
 'use client'
 
+import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from "next/navigation";
 import './header.css';
-import { useRouter } from "next/navigation";
+
+const navigationItems = [
+     {
+          href: '/categorias',
+          icon: '/book-icon.png',
+          label: 'Categories',
+          alt: 'Categories Icon'
+     },
+     {
+          href: '/quote',
+          icon: '/add_icon.png',
+          label: 'Add Product',
+          alt: 'Template Icon'
+     },
+     {
+          href: '/patterns',
+          icon: '/user-icon.png',
+          label: 'All Patterns',
+          alt: 'All Patterns Icon'
+     }
+];
 
 export default function Header() {
-	const router = useRouter();
+     const pathname = usePathname();
 
-    return (
-        <div className="header">
-            <a>
-                <img src="/BM-Logo.png" className="logo" alt="Logo" />
-            </a>
-            <div className="button-container">
-                <button 
-                    className="button" 
-                    onClick={() => router.push('/categorias')}
-                >
-                    <img className="book-icon" src="/book-icon.png" alt="Categories Icon" />
-                    <span>Categories</span>
-                </button>
-                <button 
-                    className="button" 
-                    onClick={() => router.push('/quote')}
-                >
-                    <img className="add-icon" src="/add_icon.png" alt="Template Icon" />
-                    <span>Templates</span>
-                </button>
-                <button 
-                    className="button" 
-                    onClick={() => router.push('/patterns')}
-                >
-                    <img className="user-icon" src="/user-icon.png" alt="All Patterns Icon" />
-                    <span>All Patterns</span>
-                </button>
-            </div>
-        </div>
-    );
+     return (
+          <header className="header" role="banner">
+               <div className="header-content">
+                    <div className="header-left">
+                         <Link href={'/categorias'} aria-label="Home">
+                              <Image
+                                   src="/BM-Logo.png"
+                                   className="logo"
+                                   alt="Logo"
+                                   width={250}
+                                   height={107}
+                                   priority
+                              />
+                         </Link>
+                    </div>
+
+                    <nav className="header-right" role="navigation">
+                         {navigationItems.map(({ href, icon, label, alt }) => (
+                              <Link
+                                   key={href}
+                                   className={`nav-button ${pathname === href ? 'active' : ''}`}
+                                   href={href}
+                              >
+                                   <Image
+                                        className={`nav-icon ${label.toLowerCase()}-icon`}
+                                        src={icon}
+                                        alt={alt}
+                                        width={20}
+                                        height={20}
+                                   />
+                                   <span>{label}</span>
+                              </Link>
+                         ))}
+                    </nav>
+               </div>
+          </header>
+     );
 }
 

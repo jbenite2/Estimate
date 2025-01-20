@@ -1,0 +1,90 @@
+.broaderDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    min-height: calc(100vh - 80px);
+    background-color: var(--white);
+}
+
+.header {
+    margin: 1rem 0 2rem 0;
+    text-align: center;
+
+    h1 {
+        color: var(--primary-blue);
+        font-size: 2.5rem;
+        margin: 1rem 0 2rem 0;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.baranda-button {
+    display: block;
+    background-color: #181E95;
+    color: white;
+    padding: 1.3rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(24, 30, 149, 0.3);
+        background-color: #1c2399;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .broaderDiv {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .button-container {
+        max-width: 400px;
+    }
+
+    .baranda-button {
+        padding: 1.2rem 1.8rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .button-container {
+        max-width: 100%;
+    }
+
+    .baranda-button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}

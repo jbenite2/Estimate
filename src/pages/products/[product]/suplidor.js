@@ -12,16 +12,16 @@ export default function Suplidor() {
 
 
   useEffect(() => {
-	  if (product){
-		  const incrementedProduct = parseInt(product, 10);
-		fetchProductData(incrementedProduct.toString());
-	  }
+    if (product) {
+      const incrementedProduct = parseInt(product, 10);
+      fetchProductData(incrementedProduct.toString());
+    }
   }, [product]);
 
   const fetchProductData = async (product) => {
     try {
       // Call the backend API endpoint using the fetch API
-		const response = await fetch(`/api/getAllProjectInfo?index=${product}`, {
+      const response = await fetch(`/api/getAllProjectInfo?index=${product}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -36,33 +36,35 @@ export default function Suplidor() {
   };
 
   useEffect(() => {
-      setLoading(false); 
-	  console.log(data);
+    setLoading(false);
+    console.log(data);
   }, [data]);
 
 
   return (
-	  <div className='wholePage'>
-		  <div>
-			  {loading ? (
-				<p>Loading...</p>
-			  ) : (
-				<div className='ProductDetailsContainer'>
-					<h1>Suplidor Data</h1>
-					<div className='KeyInfoContainer'>
-						<div className='KeyInfo KeyInfo1'>
-							<p>Nombre del Suplidor: {data.suppliers}</p>
-							<p>Color del Material Adquirido: {data.materialColorPurchased}</p>
-							<p>Tipo de Material: {data.materialType}</p>
-							<p>Costo del Material: {data.materialCosts}</p>
-						</div>
-					<button className='backButton' onClick={() => router.back()}>Back</button>
-					</div>
-				</div>
-			  )}
-		  </div>
-	  </div>
+    <div className='wholePage'>
+      <div>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <div className='ProductDetailsContainer'>
+            <h1>Suplidor Data</h1>
+            <div className='KeyInfoContainer'>
+              <div className='KeyInfo KeyInfo1'>
+                <p>Nombre del Suplidor: {data.suppliers}</p>
+                <p>Color del Material Adquirido: {data.materialColorPurchased}</p>
+                <p>Tipo de Material: {data.materialType}</p>
+                <p>Costo del Material: {data.materialCosts}</p>
+              </div>
+              <Link href={`/products/${product}`} className='backButton'>
+                Back
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
 
   );
-} 
+}
 

@@ -70,44 +70,46 @@ export default function Metricas() {
                 Total: {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
                   ? (lf * data.corte + lf * data.ensamblaje + lf * data.soldadura + lf * data.pulido).toFixed(2).toLocaleString()
                   : 'N/A'} horas
-			  </p>
-			  <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+              </p>
+              <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
                 ? ((data.corte + data.ensamblaje + data.soldadura + data.pulido)).toFixed(2).toLocaleString()
                 : 'N/A'} horas * $19 = {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-                ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19).toFixed(2).toLocaleString()} (costo de fabricación)`
-                : 'N/A'}
+                  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19).toFixed(2).toLocaleString()} (costo de fabricación)`
+                  : 'N/A'}
               </p>
 
               <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
                 ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19).toFixed(2).toLocaleString()}`
-					  : 'N/A'}/ {lf} pies lineales = {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-							  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 / lf).toFixed(2).toLocaleString()}`
-					  : 'N/A'} (costo de fabricación por pie lineal) 
-			  </p>
-			  
+                : 'N/A'}/ {lf} pies lineales = {data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
+                  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 / lf).toFixed(2).toLocaleString()}`
+                  : 'N/A'} (costo de fabricación por pie lineal)
+              </p>
+
 
               <h3 style={{ background: 'yellow' }}>Instalación</h3>
               <p>
                 Instalación: {data.instalacion !== undefined && data.instalacion !== null ? `${data.instalacion.toFixed(2).toLocaleString()} horas` : 'N/A'}
               </p>
-			  <p>{data.instalacion !== undefined && data.instalacion !== null ? ( data.instalacion ).toFixed(2).toLocaleString() : 'N/A'} horas * $27 = {data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27).toFixed(2).toLocaleString()} (costo de instalación)` : 'N/A'}
-			  </p>
-			  <p>{data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27).toFixed(2).toLocaleString()}` : 'N/A'}/ {lf} pies lineales = {data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27 / lf).toFixed(2).toLocaleString()} (costo de instalación por pie lineal)` : 'N/A'}
-			  </p>
+              <p>{data.instalacion !== undefined && data.instalacion !== null ? (data.instalacion).toFixed(2).toLocaleString() : 'N/A'} horas * $27 = {data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27).toFixed(2).toLocaleString()} (costo de instalación)` : 'N/A'}
+              </p>
+              <p>{data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27).toFixed(2).toLocaleString()}` : 'N/A'}/ {lf} pies lineales = {data.instalacion !== undefined && data.instalacion !== null ? `$${(data.instalacion * 27 / lf).toFixed(2).toLocaleString()} (costo de instalación por pie lineal)` : 'N/A'}
+              </p>
 
               <h3 style={{ marginTop: '70px', background: 'yellow' }}>Total</h3>
 
               <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-							  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 + data.instalacion * 27).toFixed(2).toLocaleString()}`
-					  : 'N/A'} (costo total) 
-			  </p>
+                ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 + data.instalacion * 27).toFixed(2).toLocaleString()}`
+                : 'N/A'} (costo total)
+              </p>
               <p>{data.corte !== undefined && data.ensamblaje !== undefined && data.soldadura !== undefined && data.pulido !== undefined
-							  ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 / lf + data.instalacion * 27/ lf).toFixed(2).toLocaleString()}`
-					  : 'N/A'} (costo total por pie lineal) 
-			  </p>
+                ? `$${(((data.corte + data.ensamblaje + data.soldadura + data.pulido)) * 19 / lf + data.instalacion * 27 / lf).toFixed(2).toLocaleString()}`
+                : 'N/A'} (costo total por pie lineal)
+              </p>
 
 
-              <button className='backButton' onClick={() => router.back()}>Back</button>
+              <Link href={`/products/${product}`} className='backButton'>
+                Back
+              </Link>
             </div>
           </div>
         )}

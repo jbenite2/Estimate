@@ -1,11 +1,12 @@
-'use client'
+import Header from '../components/header/header'
 
-import Layout from '../app/layout'
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  )
+	  <>
+		<Header></Header>
+		<Component {...pageProps} />
+	  </>
+  );
 }
+
